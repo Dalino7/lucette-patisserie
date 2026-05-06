@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucette Pâtisserie | Francúzska cukráreň Petržalka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --rose: #C8856A;
+            --gold: #C4A96D;
+            --dark: #2D2926;
+            --white: #FFFFFF;
+            --text: #4A4540;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Jost', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        i, .italic {
+            font-style: italic;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            pointer-events: auto;
+            z-index: 10;
+            position: relative;
+        }
+
+        .btn-primary {
+            background-color: var(--rose);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            border: 1px solid var(--dark);
+            color: var(--dark);
+        }
+
+        .btn-ghost:hover {
+            background-color: var(--dark);
+            color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(250, 247, 242, 0.95);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(196, 169, 109, 0.2);
+            pointer-events: auto;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo span {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--rose);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose);
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            font-size: 12px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--rose);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 6vw, 80px);
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 500px;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            pointer-events: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .google-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .stars {
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .hero-visual {
+            position: relative;
+            background-color: var(--rose);
+            aspect-ratio: 4/5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            pointer-events: none;
+        }
+
+        .macaron-svg {
+            width: 80%;
+            height: auto;
+            fill: var(--cream);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .hero-card {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background: var(--white);
+            padding: 25px;
+            box-shadow: none;
+            border: 1px solid var(--cream);
+            pointer-events: none;
+        }
+
+        .hero-card h4 {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .hero-card span {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--rose);
+        }
+
+        /* Info Bar */
+        .info-bar {
+            background-color: var(--white);
+            padding: 60px 0;
+            border-top: 1px solid var(--cream);
+            border-bottom: 1px solid var(--cream);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .info-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 20px;
+            stroke: var(--gold);
+        }
+
+        .info-item h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .info-item p {
+            font-size: 15px;
+            color: var(--text);
+        }
+
+        /* About Us */
+        .about {
+            padding: 120px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about-quote {
+            background-color: var(--dark);
+            padding: 80px 60px;
+            color: var(--gold);
+            position: relative;
+        }
+
+        .about-quote blockquote {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 32px;
+            line-height: 1.4;
+        }
+
+        .about-content h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 120px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .menu-card {
+            padding: 40px;
+            border: 1px solid var(--cream);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .menu-card:hover {
+            border-color: var(--gold);
+        }
+
+        .menu-num {
+            font-size: 12px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .menu-card h3 {
+            font-style: italic;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .menu-card p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--text);
+            min-height: 44px;
+        }
+
+        .menu-price {
+            font-weight: 600;
+            color: var(--rose);
+            font-size: 16px;
+        }
+
+        .menu-note {
+            text-align: center;
+            margin-top: 50px;
+            font-style: italic;
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        /* Seasonal Specialties */
+        .seasonal {
+            padding: 120px 0;
+            background-color: var(--cream);
+        }
+
+        .seasonal-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .seasonal-header .season-badge {
+            display: inline-block;
+            background-color: var(--rose);
+            color: var(--white);
+            padding: 8px 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .seasonal-header h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .seasonal-header p {
+            font-size: 16px;
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .seasonal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .seasonal-card {
+            background-color: var(--white);
+            padding: 50px;
+            border: 1px solid var(--cream);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .seasonal-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .seasonal-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .seasonal-card h3 {
+            font-style: italic;
+            font-size: 32px;
+            flex: 1;
+        }
+
+        .seasonal-icon {
+            font-size: 36px;
+            opacity: 0.7;
+        }
+
+        .seasonal-card p {
+            font-size: 15px;
+            color: var(--text);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .seasonal-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--cream);
+        }
+
+        .seasonal-price {
+            font-weight: 600;
+            color: var(--rose);
+            font-size: 18px;
+        }
+
+        .seasonal-availability {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+
+        .seasonal-note {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background-color: var(--white);
+            border-left: 4px solid var(--gold);
+        }
+
+        .seasonal-note h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .seasonal-note p {
+            font-style: italic;
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        /* Reviews */
+        .reviews {
+            padding: 120px 0;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            padding: 40px;
+            background-color: var(--white);
+            border: 1px solid var(--cream);
+        }
+
+        .review-card blockquote {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 20px;
+            line-height: 1.5;
+            margin: 20px 0;
+            color: var(--dark);
+        }
+
+        .review-author {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        /* Visit Us */
+        .visit {
+            padding: 120px 0;
+        }
+
+        .visit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .visit-info {
+            background-color: var(--rose);
+            padding: 80px;
+            color: var(--white);
+        }
+
+        .visit-info h2 {
+            color: var(--white);
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+
+        .visit-details {
+            margin-bottom: 40px;
+        }
+
+        .visit-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .visit-row span:first-child {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .visit-info .btn {
+            background-color: var(--white);
+            color: var(--rose);
+            margin-top: 20px;
+        }
+
+        .visit-map {
+            background-color: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .visit-map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            padding: 100px 0 40px;
+            color: var(--cream);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 32px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            font-size: 15px;
+            opacity: 0.7;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-grid, .info-grid, .about-grid, .menu-grid, .reviews-grid, .visit-grid, .footer-grid, .seasonal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 140px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                margin: 0 auto 40px;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .google-rating {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                margin-top: 60px;
+            }
+
+            .hero-card {
+                left: 20px;
+                right: 20px;
+                bottom: -20px;
+            }
+
+            .about-grid {
+                gap: 60px;
+            }
+
+            .visit-info {
+                padding: 40px 20px;
+            }
+
+            .visit-map {
+                min-height: 400px;
+            }
+
+            .visit-map iframe {
+                min-height: 400px;
+            }
+
+            .seasonal-card {
+                padding: 30px;
+            }
+
+            .seasonal-card h3 {
+                font-size: 24px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Lucette <span>Pâtisserie</span></a>
+            <div class="nav-links">
+                <a href="#menu">Menu</a>
+                <a href="#o-nas">O nás</a>
+                <a href="#recenzie">Recenzie</a>
+                <a href="#navstivte-nas">Navštívte nás</a>
+                <a href="tel:0948184020" class="btn btn-primary nav-cta">Rezervácia</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-tag">Francúzska pâtisserie · Petržalka, Bratislava</span>
+                    <h1>L'art de la douceur française</h1>
+                    <p>Umenie francúzskych dezertov, ktoré pečieme s láskou každé ráno priamo u nás. Zažite kúsok Paríža v srdci Petržalky.</p>
+                    <div class="hero-btns">
+                        <a href="#menu" class="btn btn-primary">Naša ponuka</a>
+                        <a href="#navstivte-nas" class="btn btn-ghost">Kde nás nájdete</a>
+                    </div>
+                    <div class="google-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.7 · 782 recenzií na Google</span>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <!-- Macaron SVG Illustration -->
+                    <svg class="macaron-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20,45 Q20,30 50,30 Q80,30 80,45 L80,50 Q80,55 50,55 Q20,55 20,50 Z" fill="#FAF7F2" />
+                        <path d="M22,50 Q22,48 50,48 Q78,48 78,50 L78,52 Q78,54 50,54 Q22,54 22,52 Z" fill="#C4A96D" opacity="0.6" />
+                        <path d="M20,55 Q20,70 50,70 Q80,70 80,55 L80,52 Q80,47 50,47 Q20,47 20,52 Z" fill="#FAF7F2" />
+                    </svg>
+                    <div class="hero-card">
+                        <h4>Macaron & Pavlovka</h4>
+                        <span>Sezónne špeciality</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Bar -->
+    <section class="info-bar">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-item">
+                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h4>Otváracie hodiny</h4>
+                    <p>Po–Pi 9:00 – 19:00<br>So–Ne 10:00 – 19:00</p>
+                </div>
+                <div class="info-item">
+                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <h4>Adresa</h4>
+                    <p>Humenské námestie 4<br>851 07 Petržalka</p>
+                </div>
+                <div class="info-item">
+                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <h4>Kontakt</h4>
+                    <p>0948 184 020<br><a href="https://facebook.com/lucettepatisserie" target="_blank">facebook.com/lucette</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="o-nas" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-quote">
+                    <blockquote>"Každý zákusok je malé umelecké dielo, ktoré v sebe nesie príbeh tradície a poctivej ručnej práce."</blockquote>
+                </div>
+                <div class="about-content">
+                    <h2>Francúzska tradícia v srdci Petržalky</h2>
+                    <p>V Lucette Pâtisserie veríme, že tie najlepšie veci vznikajú z kvalitných surovín a trpezlivosti. Naša cukráreň prináša do Bratislavy autentické chute Francúzska, od nadýchaných makróniek až po ikonické Pavlovky.</p>
+                    <p>Okrem našich dezertov si u nás môžete vychutnať výberovú kávu podávanú v našich pekných hrnčekoch, ktorý dotvára jedinečný zážitok z každej návštevy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Naša Sladká Ponuka</h2>
+                <p>Vyberte si z našich ikonických dezertov</p>
+            </div>
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-card">
+                    <span class="menu-num">01</span>
+                    <h3>Macaron</h3>
+                    <p>Krehké mandľové škrupinky s bohatou krémovou náplňou v rôznych príchutiach.</p>
+                    <span class="menu-price">od 2,20 €</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="menu-card">
+                    <span class="menu-num">02</span>
+                    <h3>Pavlovka</h3>
+                    <p>Ľahký snehový základ s jemným krémom a čerstvým sezónnym ovocím.</p>
+                    <span class="menu-price">od 4,50 €</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="menu-card">
+                    <span class="menu-num">03</span>
+                    <h3>Cheesecake</h3>
+                    <p>Krémový koláč z kvalitného syra na chrumkavom sušienkovom základe.</p>
+                    <span class="menu-price">od 4,80 €</span>
+                </div>
+                <!-- Item 4 -->
+                <div class="menu-card">
+                    <span class="menu-num">04</span>
+                    <h3>Éclair</h3>
+                    <p>Podlhovastý dezert z odpaľovaného cesta plnený jemným cukrárskym krémom.</p>
+                    <span class="menu-price">od 3,80 €</span>
+                </div>
+                <!-- Item 5 -->
+                <div class="menu-card">
+                    <span class="menu-num">05</span>
+                    <h3>Tarte aux fruits</h3>
+                    <p>Tradičný francúzsky ovocný košíček s vanilkovým krémom a lesným ovocím.</p>
+                    <span class="menu-price">od 4,20 €</span>
+                </div>
+                <!-- Item 6 -->
+                <div class="menu-card">
+                    <span class="menu-num">06</span>
+                    <h3>Nápoje</h3>
+                    <p>Výberová káva, domáce limonády a prémiové sypané čaje.</p>
+                    <span class="menu-price">od 2,50 €</span>
+                </div>
+            </div>
+            <p class="menu-note">Menu sa mení podľa sezóny</p>
+        </div>
+    </section>
+
+    <!-- Seasonal Specialties Section -->
+    <section id="seasonal" class="seasonal">
+        <div class="container">
+            <div class="seasonal-header">
+                <span class="season-badge">Jar & Leto 2026</span>
+                <h2>Sezónne Špeciality</h2>
+                <p>Objavte naše limitované edície inšpirované čerstvosťou jari a teplom leta. Každý dezert je vytvorený z najlepších sezónnych ingrediencií.</p>
+            </div>
+            <div class="seasonal-grid">
+                <!-- Seasonal Item 1 -->
+                <div class="seasonal-card">
+                    <div class="seasonal-card-header">
+                        <h3>Fraise Rhubarbe</h3>
+                        <span class="seasonal-icon">🍓</span>
+                    </div>
+                    <p>Elegantný dezert s čerstvými jahodami a tart rhubarb krémom. Jemná mandľová meringue s vanilkovým krémom a sveží ovocný nádych. Ideálny pre jarné chvíle.</p>
+                    <div class="seasonal-details">
+                        <span class="seasonal-price">5,80 €</span>
+                        <span class="seasonal-availability">Apríl – Jún</span>
+                    </div>
+                </div>
+                <!-- Seasonal Item 2 -->
+                <div class="seasonal-card">
+                    <div class="seasonal-card-header">
+                        <h3>Citron Lavande</h3>
+                        <span class="seasonal-icon">🍋</span>
+                    </div>
+                    <p>Svieža kombinácia sicílskeho citrónu a provensálskej levandule. Krémový tart s jemným levandulovým nádychom a zitrónovým curd. Dokonalý letný zážitok.</p>
+                    <div class="seasonal-details">
+                        <span class="seasonal-price">5,50 €</span>
+                        <span class="seasonal-availability">Máj – Júl</span>
+                    </div>
+                </div>
+                <!-- Seasonal Item 3 -->
+                <div class="seasonal-card">
+                    <div class="seasonal-card-header">
+                        <h3>Pistache Mûre</h3>
+                        <span class="seasonal-icon">🫐</span>
+                    </div>
+                    <p>Luxusný macaron s pistáchiou a čerstvými moruškami. Mäkký pistáchiový krém s lesným ovocím a jemným čokoládovým základom. Limitovaná edícia.</p>
+                    <div class="seasonal-details">
+                        <span class="seasonal-price">3,80 €</span>
+                        <span class="seasonal-availability">Jún – August</span>
+                    </div>
+                </div>
+                <!-- Seasonal Item 4 -->
+                <div class="seasonal-card">
+                    <div class="seasonal-card-header">
+                        <h3>Mangue Passion</h3>
+                        <span class="seasonal-icon">🥭</span>
+                    </div>
+                    <p>Tropická pavlovka s mäkkým mangom a vášňovným ovocom. Snehový základ s jemným mangovým krémom a kúskami čerstvého ovocia. Letný favorit.</p>
+                    <div class="seasonal-details">
+                        <span class="seasonal-price">6,20 €</span>
+                        <span class="seasonal-availability">Jún – September</span>
+                    </div>
+                </div>
+            </div>
+            <div class="seasonal-note">
+                <h4>💡 Tip</h4>
+                <p>Sezónne špeciality sú dostupné v limitovanom množstve. Odporúčame si ich objednať vopred na <strong>0948 184 020</strong> alebo cez našu sociálnu sieť.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="recenzie" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="stars">★★★★★</span>
+                <h2>Čo o nás hovoríte</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <span class="stars">★★★★★</span>
+                    <blockquote>"Najlepšie makrónky v meste. Skvelý pomer ceny a kvality, určite odporúčam navštíviť."</blockquote>
+                    <span class="review-author">Rastislav S.</span>
+                </div>
+                <div class="review-card">
+                    <span class="stars">★★★★★</span>
+                    <blockquote>"Ich makovo-ríbezľový koláčik je proste nebo v ústach. Krásne prostredie a milá obsluha."</blockquote>
+                    <span class="review-author">Silvia P.</span>
+                </div>
+                <div class="review-card">
+                    <span class="stars">★★★★★</span>
+                    <blockquote>"Milujem ich tenkostenný porcelán. Celá cukráreň pôsobí veľmi elegantne a luxusne."</blockquote>
+                    <span class="review-author">Jana D. L.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section id="navstivte-nas" class="visit">
+        <div class="container">
+            <div class="visit-grid">
+                <div class="visit-info">
+                    <h2>Navštívte nás</h2>
+                    <div class="visit-details">
+                        <div class="visit-row">
+                            <span>Adresa</span>
+                            <span>Humenské námestie 4, Petržalka</span>
+                        </div>
+                        <div class="visit-row">
+                            <span>Po – Pi</span>
+                            <span>9:00 – 19:00</span>
+                        </div>
+                        <div class="visit-row">
+                            <span>So – Ne</span>
+                            <span>10:00 – 19:00</span>
+                        </div>
+                        <div class="visit-row">
+                            <span>Telefón</span>
+                            <span>0948 184 020</span>
+                        </div>
+                        <div class="visit-row">
+                            <span>Služby</span>
+                            <span>Takeaway, Posedenie, Eventy</span>
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/place/Lucette+Patisserie/@48.0948318,17.1159046,17z" target="_blank" class="btn">Otvoriť v Mapách</a>
+                </div>
+                <div class="visit-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.0831949999997!2d17.11527832346845!3d48.09483177126649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c89cb96ac3213%3A0x5b8955a320cf3f90!2sLucette%20Patisserie!5e0!3m2!1ssk!2ssk!4v1715000000000" width="100%" height="100%" style="border:none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">Lucette Pâtisserie</a>
+                    <p style="opacity: 0.7; font-size: 14px;">Kúsok francúzskeho neba v Petržalke. Pečieme s láskou a tradíciou pre vašu radosť.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#menu">Dezerty</a></li>
+                        <li><a href="#menu">Nápoje</a></li>
+                        <li><a href="#seasonal">Sezónna ponuka</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informácie</h4>
+                    <ul>
+                        <li><a href="#o-nas">O nás</a></li>
+                        <li><a href="#navstivte-nas">Kontakt</a></li>
+                        <li><a href="#recenzie">Recenzie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sledujte nás</h4>
+                    <ul>
+                        <li><a href="https://facebook.com/lucettepatisserie" target="_blank">Facebook</a></li>
+                        <li><a href="https://instagram.com/lucettepatisserie" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Lucette Pâtisserie. Všetky práva vyhradené. Made with &hearts; for Petržalka.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
